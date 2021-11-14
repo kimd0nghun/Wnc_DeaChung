@@ -103,7 +103,11 @@ select {
 #alert_icon {
     width: 20px;
 }
-#page_icon {
+#page_icon1 {
+    width: 12px;
+    margin: 0px 20px;
+}
+#page_icon2 {
     width: 12px;
     margin: 0px 20px;
 }

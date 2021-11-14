@@ -9,6 +9,7 @@
         <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
         <title>Document</title>
 
         <!-- <script defer src="/__/firebase/9.4.0/firebase-app-compat.js"></script>
@@ -58,7 +59,7 @@
             <button id="update">회원정보수정</button>
             <img
                 id="alert_icon"
-                src="./images/is_notification.png"
+                src="./images/notification.png"
                 alt="알림 아이콘"
             />
             <button id="logout_btn">로그아웃</button>
@@ -70,11 +71,15 @@
         </div>
         <div id="board">
             <div id="board_search">
-                <select name="category">
-                    <option id="title" selected>제목</option>
-                    <option id="teacher">선생님</option>
+                <select id="cate" name="category">
+                    <option id="title" value="title" selected>제목</option>
+                    <option id="teacher" value="teacher">선생님</option>
                 </select>
-                <input class="category" id="category_input" value="한석원" />
+                <input
+                    class="category"
+                    id="category_input"
+                    placeholder="검색어 입력"
+                />
                 <input type="button" id="category_search" value="검색" />
                 <br />
                 <select name="recruitment">
@@ -105,20 +110,18 @@
             </div>
             <div id="board_page">
                 <img
-                    id="page_icon"
+                    id="page_icon1"
                     src="./images/left-arrow.png"
                     alt="알림 아이콘"
                 />
                 <span id="page_index">1</span>
                 <img
-                    id="page_icon"
+                    id="page_icon2"
                     src="./images/right-arrow.png"
                     alt="알림 아이콘"
                 />
             </div>
         </div>
-
-        <script src="./main.js"></script>
 
         <script>
             // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
@@ -146,7 +149,8 @@
             firebase.initializeApp(firebaseConfig);
 
             var db = firebase.firestore();
-
+            var storage = firebase.storage();
+            var storageRef = storage.ref();
             // Import the functions you need from the SDKs you need
             // import { initializeApp } from "firebase/app";
             // import { getAnalytics } from "firebase/analytics";
@@ -158,6 +162,9 @@
 
             // Initialize Firebase
         </script>
+        <!-- <script src="join.js"></script> -->
+        <script src="./main.js"></script>
+
         <script src="main_db.js"></script>
     </body>
 </html>
