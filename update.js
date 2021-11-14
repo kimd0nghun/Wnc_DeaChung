@@ -1,5 +1,12 @@
+document.getElementById("manage").addEventListener("click", main);
+function main() {
+  open("./managerPage.html","_self");
+}
+
+
 let classfication = localStorage.getItem("classfication");
 let collection = classfication+"s";
+console.log(collection);
 let id = localStorage.getItem("id");
 let name = localStorage.getItem("name");
 
@@ -18,6 +25,7 @@ document.getElementById("out").addEventListener("click", out);
 
 function out() {
   alert("회원을 탈퇴합니다.")
+  localStorage.clear();
 
     db.collection(collection).doc(id).delete().then(() => {
         console.log("Document successfully deleted!");
@@ -100,6 +108,8 @@ function update() {
 
     var updatepw = document.getElementById("pw").value;
     var updatename = document.getElementById("name").value;
+
+    console.log(updatepw);
 
     if(pw !== updatepw) {
       if(updatepw=="") {
@@ -187,7 +197,7 @@ function update() {
 
     }
     alert("회원정보가 수정되었습니다.")
-    open("./index.html","_self");
+    //open("./index.html","_self");
 }
 
 
