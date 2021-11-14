@@ -19,7 +19,7 @@ function click_logout() {
     localStorage.removeItem("classfication");
     localStorage.removeItem("timestamp");
     localStorage.removeItem("teacher_id");
-
+    localStorage.removeItem("alert");
     document.getElementById("users").innerHTML = "";
     document.getElementById("users").style.color = "blue";
     document.getElementById("users").style.display = "none";
@@ -34,6 +34,39 @@ function click_logout() {
 function click_update() {
     open("./update.html");
 }
+$(document).ready(function () {
+    let id = localStorage.getItem("id");
+
+    db.collection("students")
+        .doc(id)
+        .collection("join")
+        .get()
+        .then((a) => {
+            a.forEach((doc) => {
+                console.log(doc.id);
+                docID = doc.id;
+                time = doc.data().timestamp;
+                console.log(time + "time");
+                let cnt = 0;
+                let max = 0;
+                db.collection("board")
+                    .doc(docID)
+                    .collection("register_board")
+                    .doc(time)
+                    .get()
+                    .then((q) => {
+                        q.forEach((d) => {
+                            cnt = d.data().count;
+                            max = d.data().recruitment_number;
+                            console.log(cnt + "asd");
+                            if (cnt >= max) {
+                                localStorage.setItem("alert", true);
+                            }
+                        });
+                    });
+            });
+        });
+});
 function init() {
     let img = document.getElementById("alert_icon");
     if (img.src == "./images/is_notification.png");
@@ -41,6 +74,9 @@ function init() {
     let id = localStorage.getItem("id");
     let name = localStorage.getItem("name");
     let alert = localStorage.getItem("alert");
+    let docID = "";
+    let time = "";
+    // console.log(cnt + "asd");
 
     console.log(id);
     if (alert) {

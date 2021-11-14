@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="managerPage.css"/>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="managerPage.css" />
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
     </head>
     <body>
         <h1>관리자 페이지</h1>
@@ -20,17 +22,16 @@
                     <option value="most">수강</option>
                     -->
                 </select>
-                <input id="searchInput" type="text" placeholder="검색어 입력">
+                <input id="searchInput" type="text" placeholder="검색어 입력" />
                 <button id="searchBtn">검색</button>
             </span>
         </div>
         <p id="blackalert">
-            * 블랙리스트 등록은 신고 접수가 3회 이상 접수되었을 때부터 가능합니다 *
-            * 검색 시에는 이름을 정확히 입력해주세요 *
+            * 블랙리스트 등록은 신고 접수가 3회 이상 접수되었을 때부터
+            가능합니다 * * 검색 시에는 이름을 정확히 입력해주세요 *
         </p>
-        <br>
-        <div id="teacherList" class="container">
-        </div>
+        <br />
+        <div id="teacherList" class="container"></div>
         <script type="text/javascript" src="managerPage.js"></script>
     </body>
 </html>

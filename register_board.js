@@ -24,6 +24,24 @@ function click_save() {
     let userName = localStorage.getItem("name");
     let tempDate = new Date();
     let userDate = format(tempDate);
+    let black = false;
+    alert(userId);
+    db.collection("teachers")
+        .doc(userId)
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                black = doc.data().blacklist;
+                alert(doc.data());
+            });
+        });
+
+    alert(black);
+    if (black == true) {
+        console.log("!!");
+        alert("블랙리스트에 올랐습니다. 게시물작성불가");
+        return;
+    }
 
     let userTitle = title.value;
     let userRecruitment_number = recruitment_number.value;

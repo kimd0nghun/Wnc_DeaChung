@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head> 
-        <meta charset="UTF-8">
-        <link href="login.css" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <link href="login.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     </head>
     <body>
-
-
         <div id="login_box" class="center" class="login">
-
-
             <div class="div">
                 <h1 id="main" onclick="location.href='index.html'">main</h1>
             </div>
 
             <div class="loginbox">
-
                 <div>
-                    아이디   : <input type="text" id="id" required><br><br>
-                    비밀번호 : <input type="password" id="password" required><br><br>
-                </div>
-                
-                <div>
-                    <input type="radio" name="member" value="student">학생
-                    <input type="radio" name="member" value="teacher">선생님
-                    <input type="radio" name="member" value="manager">관리자<br><br><br>
+                    아이디 : <input type="text" id="id" required /><br /><br />
+                    비밀번호 :
+                    <input type="password" id="password" required /><br /><br />
                 </div>
 
                 <div>
-                    <input type="submit" value="로그인" id="login">
+                    <input type="radio" name="member" value="student" />학생
+                    <input type="radio" name="member" value="teacher" />선생님
+                    <input
+                        type="radio"
+                        name="member"
+                        value="manager"
+                    />관리자<br /><br /><br />
+                </div>
+
+                <div>
+                    <input type="submit" value="로그인" id="login" />
                     <button id="signup">회원가입</button>
                 </div>
             </div>
-
-
         </div>
-
-
 
         <script>
             // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
@@ -79,13 +75,8 @@
             // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
             // Initialize Firebase
-
         </script>
 
-
         <script type="text/javascript" src="login.js"></script>
-
     </body>
-
-
 </html>

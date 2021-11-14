@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head> 
-        <meta charset="UTF-8">
-        <link href="login.css" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <link href="login.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     </head>
     <body>
-
         <div id="signup_box" class="center">
-            <br><hr>
+            <br />
+            <hr />
             <table>
                 <tr>
                     <td>*아이디</td>
-                    <td><input type="text" id="id1" required></td>
+                    <td><input type="text" id="id1" required /></td>
                 </tr>
                 <tr>
                     <td>*비밀번호</td>
-                    <td><input type="password" id="pw1" required></td>
+                    <td><input type="password" id="pw1" required /></td>
                 </tr>
                 <!--<tr>
                     <td>*비밀번호 확인</td>
@@ -27,34 +27,88 @@
                 </tr>-->
                 <tr>
                     <td>*이름</td>
-                    <td><input type="text" id="name" required></td>
+                    <td><input type="text" id="name" required /></td>
                 </tr>
                 <tr>
                     <td>*회원분류</td>
-                    <td><input type="radio" name="classfication" value="student">학생
-                        <input type="radio" name="classfication" value="teacher">선생님
-                        <input type="radio" name="classfication" value="manager">관리자</td>
+                    <td>
+                        <input
+                            type="radio"
+                            name="classfication"
+                            value="student"
+                        />학생
+                        <input
+                            type="radio"
+                            name="classfication"
+                            value="teacher"
+                        />선생님
+                        <input
+                            type="radio"
+                            name="classfication"
+                            value="manager"
+                        />관리자
+                    </td>
                 </tr>
                 <tr>
-                    <td class="red" colspan="2">----다음부터 선생님만 입력----</td>
+                    <td class="red" colspan="2">
+                        ----다음부터 선생님만 입력----
+                    </td>
                 </tr>
                 <tr>
                     <td>사진</td>
-                    <td><input class="teacher" type="file" id="img" accept=".jpg" disabled></td>
+                    <td>
+                        <input
+                            class="teacher"
+                            type="file"
+                            id="img"
+                            accept=".jpg"
+                            disabled
+                        />
+                    </td>
                 </tr>
                 <tr>
                     <td>분야</td>
-                    <td><input class="teacher" type="text" id="subject" disabled></td>
+                    <td>
+                        <input
+                            class="teacher"
+                            type="text"
+                            id="subject"
+                            disabled
+                        />
+                    </td>
                 </tr>
                 <tr>
                     <td>경력</td>
                     <td>
-                        학교 <input class="teacher" type="text" id="school" disabled><br>
-                        수상 <input class="teacher" type="text" id="award" disabled><br>
-                        과외 경력 <input class="teacher" type="text" id="career"size=14 disabled></td>
+                        학교
+                        <input
+                            class="teacher"
+                            type="text"
+                            id="school"
+                            disabled
+                        /><br />
+                        수상
+                        <input
+                            class="teacher"
+                            type="text"
+                            id="award"
+                            disabled
+                        /><br />
+                        과외 경력
+                        <input
+                            class="teacher"
+                            type="text"
+                            id="career"
+                            size="14"
+                            disabled
+                        />
+                    </td>
                 </tr>
-            </table><br><hr><br><br>
-            <input type="submit" value="회원가입" id="signup1">
+            </table>
+            <br />
+            <hr />
+            <br /><br />
+            <input type="submit" value="회원가입" id="signup1" />
             <button id="cancel">취소</button>
         </div>
 
@@ -95,13 +149,8 @@
             // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
             // Initialize Firebase
-
         </script>
 
-
         <script type="text/javascript" src="signup.js"></script>
-
     </body>
-
-
 </html>

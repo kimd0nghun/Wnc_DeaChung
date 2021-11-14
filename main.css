@@ -39,7 +39,7 @@ h1 {
 }
 #top_navi {
     /* height: 200px; */
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     margin-left: auto;
     /* border: 3px dotted blue; */
     /* width: 50%; */
@@ -54,7 +54,7 @@ h1 {
     float: left;
     width: 20vw;
     height: 80vh;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 #board_search {
     height: 100px;
@@ -62,14 +62,14 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     justify-self: center;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     /* width: 100%;      */
 }
 #board {
     width: 70vw;
     height: 80vh;
     display: grid;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     margin: 0 auto;
 }
 .category {

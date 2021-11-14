@@ -6,10 +6,10 @@ table {
     width: 50%;
 }
 
-th, td {
+th,
+td {
     padding: 15px;
 }
-
 
 .center {
     text-align: center;
@@ -17,7 +17,7 @@ th, td {
     margin-right: auto;
     width: 70%;
 }
-  
+
 hr {
     border: 1px solid black;
     border-bottom: 0px;
@@ -43,7 +43,7 @@ hr {
     float: left;
 }
 
-
 #manage {
+    display: none;
     color: blue;
 }
