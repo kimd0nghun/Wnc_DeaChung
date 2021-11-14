@@ -39,3 +39,11 @@ hr {
     border: 1px solid white;
 }
 
+#title {
+    float: left;
+}
+
+
+#manage {
+    color: blue;
+}
