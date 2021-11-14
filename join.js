@@ -8,98 +8,126 @@ function click_cancel() {
 }
 function click_join() {
     let teacher_id = localStorage.getItem("teacher_id");
-    // let teacher_id = ""
     let id = localStorage.getItem("id"); //로그인한 학생의
     let timestamp = localStorage.getItem("timestamp");
     let userName = localStorage.getItem("name");
-    // To update age and favorite color:
+    let classfication = localStorage.getItem("classfication");
 
-    // db.collection("teachers")
-    //     .get()
-    //     .then((querySnapshot) => {
-    //         querySnapshot.forEach((doc) => {
-    //             if(doc.data().id ==teacher_id){//ok
-
-    //             }
-    //         });
-    //     });
-
-    db.collection("board")
+    let flag = false;
+    db.collection("teachers")
         .doc(teacher_id)
-        .collection("register_board")
+        .collection("teaching")
         .get()
         .then((querySnapshot) => {
-            // console.log(`1`);
             querySnapshot.forEach((doc) => {
-                if (doc.id == timestamp) {
-                    console.log(`matched : ${timestamp}`);
-                    let cnt = doc.data().count;
-                    let max = doc.data().recruitment_number;
-                    if (cnt >= max) {
-                        alert(
-                            `모집인원${max}명이 충족되었습니다. 신청 불가합니다.`
-                        );
-                    } else {
-                        cnt++;
-                        // $($tr).append($text);
-                        db.collection("board")
-                            .doc(teacher_id)
-                            .collection("register_board")
-                            .doc(doc.id)
-                            .update({
-                                count: cnt,
-                            });
-                        // alert("complete");
-                    }
+                if (doc.id == id) {
+                    flag = true; //이미 신청 했었음.
                 }
             });
         })
         .then(() => {
-            // console.log(`2`);
-            db.collection("board")
-                .doc("main")
-                .collection("boards")
-                .get()
-                .then((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        if (doc.id == timestamp) {
-                            // console.log(`matched : ${timestamp}`);
-                            let cnt = doc.data().count;
-                            let max = doc.data().recruitment_number;
-                            if (cnt >= max) {
-                            } else {
-                                cnt++;
-                                // $($tr).append($text);
-                                db.collection("board")
-                                    .doc("main")
-                                    .collection("boards")
-                                    .doc(doc.id)
-                                    .update({
-                                        count: cnt,
-                                    })
-                                    .then(() => {
-                                        db.collection("teachers")
-                                            .doc(teacher_id)
-                                            .collection("teaching")
-                                            .doc(id)
-                                            .set({
-                                                name: userName,
-                                                star_check: false,
-                                                report_check: false,
-                                            });
-                                    })
-                                    .then(() => {
-                                        console.log("3");
-                                        alert("completed");
-                                        // open("./index.html");
-                                        opener.document.location.reload();
-                                        console.log(`reload`);
-                                        close();
-                                    });
+            if (flag) {
+                alert(`이미 신청 했습니다.`);
+            } else
+                db.collection("board")
+                    .doc(teacher_id)
+                    .collection("register_board")
+                    .get()
+                    .then((querySnapshot) => {
+                        // console.log(`1`);
+                        querySnapshot.forEach((doc) => {
+                            if (doc.id == timestamp) {
+                                console.log(`matched : ${timestamp}`);
+                                let cnt = doc.data().count;
+                                let max = doc.data().recruitment_number;
+                                if (cnt >= max) {
+                                    alert(
+                                        `모집인원${max}명이 충족되었습니다. 신청 불가합니다.`
+                                    );
+                                } else {
+                                    cnt++;
+                                    // $($tr).append($text);
+                                    db.collection("board")
+                                        .doc(teacher_id)
+                                        .collection("register_board")
+                                        .doc(doc.id)
+                                        .update({
+                                            count: cnt,
+                                        });
+                                    // alert("complete");
+                                }
                             }
-                        }
+                        });
+                    })
+                    .then(() => {
+                        let img_update = false;
+
+                        // console.log(`2`);
+                        db.collection("board")
+                            .doc("main")
+                            .collection("boards")
+                            .get()
+                            .then((querySnapshot) => {
+                                querySnapshot.forEach((doc) => {
+                                    if (doc.id == timestamp) {
+                                        // console.log(`matched : ${timestamp}`);
+                                        let cnt = doc.data().count;
+                                        let max = doc.data().recruitment_number;
+                                        if (cnt >= max) {
+                                            // img_update = true;
+                                        } else {
+                                            cnt++;
+                                            if (cnt >= max) img_update = true;
+                                            db.collection("board")
+                                                .doc("main")
+                                                .collection("boards")
+                                                .doc(doc.id)
+                                                .update({
+                                                    count: cnt,
+                                                })
+                                                .then(() => {
+                                                    db.collection("teachers")
+                                                        .doc(teacher_id)
+                                                        .collection("teaching")
+                                                        .doc(id)
+                                                        .set({
+                                                            name: userName,
+                                                            star_check: false,
+                                                            report_check: false,
+                                                        });
+                                                })
+                                                .then(() => {
+                                                    // console.log("3");
+                                                    alert("신청되었습니다.");
+                                                    db.collection("students")
+                                                        .doc(id)
+                                                        .collection("join")
+                                                        .doc(teacher_id)
+                                                        .set({
+                                                            timestamp:
+                                                                timestamp,
+                                                        })
+                                                        .then(() => {
+                                                            opener.document.location.reload();
+                                                            console.log(
+                                                                `reload`
+                                                            );
+                                                            close();
+                                                        });
+                                                    // open("./index.html");
+                                                });
+                                        }
+                                    }
+                                });
+                            })
+                            .then(() => {
+                                console.log("mmm1");
+                                localStorage.setItem("alert", true);
+                                opener.document.getElementById(
+                                    "alert_icon"
+                                ).src = "./images/is_notification.png";
+                            });
                     });
-                });
         });
 }
 function init() {
@@ -107,6 +135,7 @@ function init() {
         let classfication = localStorage.getItem("classfication");
         if (classfication == "teacher") {
             join.style.display = "none";
+        } else {
         }
         let teacher_id = localStorage.getItem("teacher_id");
         let timestamp = localStorage.getItem("timestamp");
