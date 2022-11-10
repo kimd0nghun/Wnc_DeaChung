@@ -1,131 +1,131 @@
 h1 {
-    text-align: center;
+  text-align: center;
 }
 #register_board {
-    margin-left: 50%;
-    display: none;
-    margin-right: 50px;
+  margin-left: 50%;
+  display: none;
+  margin-right: 50px;
 }
 #my_board {
-    display: none;
-    margin-right: 50px;
+  display: none;
+  margin-right: 50px;
 }
 #update {
-    display: none;
-    margin-left: 30px;
+  display: none;
+  margin-left: 30px;
 }
 #logout_btn {
-    /* height: 30px; */
-    /* flex-grow: 1; */
-    /* display: inline-block; */
-    display: none;
-    margin-right: 50px;
+  /* height: 30px; */
+  /* flex-grow: 1; */
+  /* display: inline-block; */
+  display: none;
+  margin-right: 50px;
 }
 #login_btn {
-    /* height: 30px; */
-    /* flex-grow: 1; */
-    /* display: inline-block; */
-    margin-right: 50px;
+  /* height: 30px; */
+  /* flex-grow: 1; */
+  /* display: inline-block; */
+  margin-right: 50px;
 }
 #alert_icon {
-    margin-left: auto;
-    display: block;
-    width: 100px;
-    height: 50px;
-    margin-right: 50px;
-    /* object-fit: cover; */
-    /* height: 100px; */
-    /* width: 100; */
+  margin-left: auto;
+  display: block;
+  width: 100px;
+  height: 50px;
+  margin-right: 50px;
+  /* object-fit: cover; */
+  /* height: 100px; */
+  /* width: 100; */
 }
 #top_navi {
-    /* height: 200px; */
-    /* border: 1px solid blue; */
-    margin-left: auto;
-    /* border: 3px dotted blue; */
-    /* width: 50%; */
-    display: flex;
+  /* height: 200px; */
+  /* border: 1px solid blue; */
+  margin-left: auto;
+  /* border: 3px dotted blue; */
+  /* width: 50%; */
+  display: flex;
 }
 #side_navi {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
-    text-align: center;
-    float: left;
-    width: 20vw;
-    height: 80vh;
-    /* border: 1px solid blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+  float: left;
+  width: 10vw;
+  height: 80vh;
+  /* border: 1px solid blue; */
 }
 #board_search {
-    height: 100px;
-    /* width: auto; */
-    margin-left: auto;
-    margin-right: auto;
-    justify-self: center;
-    /* border: 1px solid blue; */
-    /* width: 100%;      */
+  height: 100px;
+  /* width: auto; */
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+  /* border: 1px solid blue; */
+  /* width: 100%;      */
 }
 #board {
-    width: 70vw;
-    height: 80vh;
-    display: grid;
-    /* border: 1px solid blue; */
-    margin: 0 auto;
+  width: 70vw;
+  height: 80vh;
+  display: grid;
+  /* border: 1px solid blue; */
+  margin: 0 auto;
 }
 .category {
-    width: 500px;
-    margin: 5px;
-    height: 25px;
+  width: 500px;
+  margin: 5px;
+  height: 25px;
 }
 #category_search {
-    color: white;
-    background-color: black;
-    margin: 5px;
-    height: 30px;
+  color: white;
+  background-color: black;
+  margin: 5px;
+  height: 30px;
 }
 select {
-    width: 100px;
-    margin: 5px;
-    height: 30px;
+  width: 100px;
+  margin: 5px;
+  height: 30px;
 }
 #board_table {
-    margin-left: auto;
-    margin-right: auto;
-    justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
 }
 #board_page {
-    align-self: flex-end;
-    /* text-align: end; */
-    margin-left: auto;
-    margin-right: auto;
-    justify-self: center;
+  align-self: flex-end;
+  /* text-align: end; */
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
 }
 #alert_icon {
-    width: 20px;
+  width: 20px;
 }
 #page_icon1 {
-    width: 12px;
-    margin: 0px 20px;
+  width: 12px;
+  margin: 0px 20px;
 }
 #page_icon2 {
-    width: 12px;
-    margin: 0px 20px;
+  width: 12px;
+  margin: 0px 20px;
 }
 table {
-    font-family: "arial", "sans-serif";
+  font-family: "arial", "sans-serif";
 
-    border: 1px solid black;
-    border-collapse: collapse;
+  border: 1px solid black;
+  border-collapse: collapse;
 }
 tr {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 th,
 td {
-    padding: 10px;
-    text-align: center;
-    /* border:  1px solid black; */
+  padding: 10px;
+  text-align: center;
+  /* border:  1px solid black; */
 }
 th {
-    background-color: grey;
+  background-color: grey;
 }

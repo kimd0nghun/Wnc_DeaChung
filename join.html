@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="./join.css" rel="stylesheet" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./join.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-        <title>Document</title>
-    </head>
-    <body>
-        JOIN!
-        <div id="pp">s</div>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>제목</th>
-                        <th>모집인원</th>
-                        <th>작성자</th>
-                        <th>등록일</th>
-                        <th>과외 기간</th>
-                        <!-- <th>작성내용</th> -->
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        <br />
-        작성내용!!
-        <p id="text">작성내용!</p>
-        <button id="join">신청하기</button>
-        <button id="cancel">돌아가기</button>
-        <script>
-            // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-            // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js";
-            // import firebase from "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js";
-            // import "https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js";
+    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="pp"></div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>제목</th>
+            <th>모집인원</th>
+            <th>작성자</th>
+            <th>등록일</th>
+            <th>과외 기간</th>
+            <!-- <th>작성내용</th> -->
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <br />
+    게시글 작성 시 입력하는 내용이 들어가게 된다.
+    <p id="text">작성내용!</p>
+    <button id="join">신청하기</button>
+    <button id="cancel">돌아가기</button>
+    <script>
+      // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js";
+      // import firebase from "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js";
+      // import "https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js";
 
-            // const firebase = require("firebase");
-            // Required for side-effects
-            // require("firebase/firestore");
-            // firebase.initializeApp({
-            //     apiKey: "AIzaSyDiOMeXpGNgYBSphTJZN4cZLeJRCtV9Ae4",
-            //     authDomain: "wnc-deachung.firebaseapp.com",
-            //     projectId: "wnc-deachung",
-            // });
-            const firebaseConfig = {
-                apiKey: "AIzaSyDiOMeXpGNgYBSphTJZN4cZLeJRCtV9Ae4",
-                authDomain: "wnc-deachung.firebaseapp.com",
-                projectId: "wnc-deachung",
-                storageBucket: "wnc-deachung.appspot.com",
-                messagingSenderId: "769266517788",
-                appId: "1:769266517788:web:7f37d9571d2850627ddcd9",
-                measurementId: "G-Y3NNN50WLQ",
-            };
-            firebase.initializeApp(firebaseConfig);
+      // const firebase = require("firebase");
+      // Required for side-effects
+      // require("firebase/firestore");
+      // firebase.initializeApp({
+      //     apiKey: "AIzaSyDiOMeXpGNgYBSphTJZN4cZLeJRCtV9Ae4",
+      //     authDomain: "wnc-deachung.firebaseapp.com",
+      //     projectId: "wnc-deachung",
+      // });
+      const firebaseConfig = {
+        apiKey: "AIzaSyDiOMeXpGNgYBSphTJZN4cZLeJRCtV9Ae4",
+        authDomain: "wnc-deachung.firebaseapp.com",
+        projectId: "wnc-deachung",
+        storageBucket: "wnc-deachung.appspot.com",
+        messagingSenderId: "769266517788",
+        appId: "1:769266517788:web:7f37d9571d2850627ddcd9",
+        measurementId: "G-Y3NNN50WLQ",
+      };
+      firebase.initializeApp(firebaseConfig);
 
-            var db = firebase.firestore();
+      var db = firebase.firestore();
 
-            // Import the functions you need from the SDKs you need
-            // import { initializeApp } from "firebase/app";
-            // import { getAnalytics } from "firebase/analytics";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
+      // Import the functions you need from the SDKs you need
+      // import { initializeApp } from "firebase/app";
+      // import { getAnalytics } from "firebase/analytics";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-            // Initialize Firebase
-        </script>
-        <script src="./join.js"></script>
-    </body>
+      // Initialize Firebase
+    </script>
+    <script src="./join.js"></script>
+  </body>
 </html>
